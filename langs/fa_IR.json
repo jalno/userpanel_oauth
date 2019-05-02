@@ -1,0 +1,13 @@
+{
+	"rtl": true,
+	"phrases": {
+		"usertype.permissions.userpanel_oauth_apps_search": "لیست برنامه ها",
+		"usertype.permissions.userpanel_oauth_apps_add": "افزودن برنامه",
+		"usertype.permissions.userpanel_oauth_apps_edit": "ویرایش برنامه",
+		"usertype.permissions.userpanel_oauth_apps_delete": "حذف برنامه",
+		"usertype.permissions.userpanel_oauth_accesses_search": "لیست دسترسی ها",
+		"usertype.permissions.userpanel_oauth_accesses_add": "افزودن دسترسی",
+		"usertype.permissions.userpanel_oauth_accesses_edit": "ویرایش دسترسی",
+		"usertype.permissions.userpanel_oauth_accesses_delete": "حذف دسترسی"
+	}
+}

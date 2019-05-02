@@ -1,0 +1,57 @@
+[
+	{
+		"path": "userpanel/oauth2/authorize",
+		"controller": "controllers/OAuth2/Authorize@prompt",
+		"method": "get"
+	},
+	{
+		"path": "userpanel/oauth2/authorize",
+		"controller": "controllers/OAuth2/Authorize@confrim",
+		"method": "post"
+	},
+	{
+		"path": "userpanel/oauth2/token",
+		"controller": "controllers/OAuth2/Token@code",
+		"method": "post"
+	},
+	{
+		"path": "userpanel/settings/apps",
+		"controller": "controllers/settings/Apps@search",
+		"method": "get"
+	},
+	{
+		"path": "userpanel/settings/apps/add",
+		"controller": "controllers/settings/Apps@store",
+		"method": "post"
+	},
+	{
+		"path": "userpanel/settings/apps/:app/edit",
+		"controller": "controllers/settings/Apps@update",
+		"method": "post"
+	},
+	{
+		"path": "userpanel/settings/apps/:app/delete",
+		"controller": "controllers/settings/Apps@destroy",
+		"method": "post"
+	},
+	{
+		"path": "userpanel/settings/accesses",
+		"controller": "controllers/settings/Accesses@search",
+		"method": "get"
+	},
+	{
+		"path": "userpanel/settings/accesses/add",
+		"controller": "controllers/settings/Accesses@add",
+		"method": "post"
+	},
+	{
+		"path": "userpanel/settings/accesses/:access/edit",
+		"controller": "controllers/settings/Accesses@update",
+		"method": "post"
+	},
+	{
+		"path": "userpanel/settings/accesses/:access/delete",
+		"controller": "controllers/settings/Accesses@destroy",
+		"method": "post"
+	}
+]

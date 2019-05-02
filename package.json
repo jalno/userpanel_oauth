@@ -1,0 +1,21 @@
+{
+	"autoload": {
+		"directories": ["controllers", "library", "listeners", "views"]
+	},
+	"routing": "routing.json",
+	"dependencies": ["userpanel"],
+	"frontend": "frontend",
+	"languages": {
+		"fa_IR": "langs/fa_IR.json"
+	},
+	"events": [
+		{
+			"name":"packages/userpanel/events/usertype_permissions_list",
+			"listener": "listeners/settings/Usertype@permissions"
+		},
+		{
+			"name":"packages/userpanel/events/AuthenticationHandlersEvent",
+			"listener": "listeners/AuthenticationHandlers@add"
+		}
+	]
+}
