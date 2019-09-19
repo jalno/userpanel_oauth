@@ -1,7 +1,7 @@
 <?php
 namespace packages\userpanel_oauth\controllers\OAuth2;
 
-use packages\base\{InputValidationException, NotFound, View, Options, utility\Password};
+use packages\base\{InputValidationException, NotFound, View, Options, utility\Password, http, Response};
 use packages\userpanel\{Controller, Date, Authentication, User};
 use packages\userpanel_oauth\{validators, views, Access, App};
 
@@ -10,11 +10,13 @@ class Token extends Controller {
 	protected $authentication = false;
 
 	public function code() {
+		http::$request['get']['ajax'] = 1;
+		$this->response = new Response();
 		try {
 			$inputs = $this->checkinputs(array(
 				'grant_type' => array(
 					'type' => 'string',
-					'values' => ['authorization_code']
+					'values' => ['authorization_code', 'refresh_token']
 				),
 				'client_id' => array(
 					'type' => validators\AppTokenValidator::class,
@@ -23,10 +25,21 @@ class Token extends Controller {
 					'type' => 'url',
 					'protocols' => null,
 				),
-				'code' => array(
-					'type' => 'string',
-				)
 			));
+			if ($inputs['grant_type'] == 'authorization_code') {
+				$inputs = array_merge($inputs, $this->checkinputs(array(
+					'code' => array(
+						'type' => 'string',
+					),
+				)));
+			} elseif ($inputs['grant_type'] == 'refresh_token') {
+				$inputs = array_merge($inputs, $this->checkinputs(array(
+					'refresh_token' => array(
+						'type' => 'string',
+					),
+				)));
+				$inputs['code'] = $inputs['refresh_token'];
+			}
 			$access = (new Access())
 						->with("user")
 						->with("app")
@@ -64,4 +77,5 @@ class Token extends Controller {
 		}
 		return $this->response;
 	}
+	
 }
