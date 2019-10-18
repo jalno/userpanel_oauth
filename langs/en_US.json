@@ -1,0 +1,13 @@
+{
+	"rtl": false,
+	"phrases": {
+		"usertype.permissions.userpanel_oauth_apps_search": "Apps list",
+		"usertype.permissions.userpanel_oauth_apps_add": "Add App",
+		"usertype.permissions.userpanel_oauth_apps_edit": "Edit App",
+		"usertype.permissions.userpanel_oauth_apps_delete": "Delete App",
+		"usertype.permissions.userpanel_oauth_accesses_search": "API accesses list",
+		"usertype.permissions.userpanel_oauth_accesses_add": "Add API access",
+		"usertype.permissions.userpanel_oauth_accesses_edit": "Edit API access",
+		"usertype.permissions.userpanel_oauth_accesses_delete": "Delete API access"
+	}
+}
