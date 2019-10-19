@@ -32,6 +32,13 @@
 		"userpanel_oauth.accesses.edit": "Edit API Access",
 		"userpanel_oauth.accesses.delete": "Delete API Access",
 		"error.userpanel_oauth.accesses.notfound": "No API Access found",
-		"userpanel_oauth.accesses.delete.warning": "<p>Are sure to delete this access?</p><p>Please be careful about deleting accesses, This action can't be revert.</p>"
+		"userpanel_oauth.accesses.delete.warning": "<p>Are sure to delete this access?</p><p>Please be careful about deleting accesses, This action can't be revert.</p>",
+		"userpanel_oauth.accesses.prompt.warning": "<strong>{app.name}</strong> App try to access your account on this site",
+		"userpanel_oauth.accesses.prompt.allow": "Allow connction",
+		"userpanel_oauth.disagree": "Disagree",
+		"userpanel_oauth.understood": "Understood",
+		"userpanel_oauth.cancel": "Cancel",
+		"userpanel_oauth.delete": "Delete",
+		"userpanel_oauth.copied": "Copied"
 	}
 }

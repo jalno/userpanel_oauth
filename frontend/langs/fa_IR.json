@@ -32,6 +32,13 @@
 		"userpanel_oauth.accesses.edit": "ویرایش دسترسی",
 		"userpanel_oauth.accesses.delete": "حذف دسترسی",
 		"error.userpanel_oauth.accesses.notfound": "دسترسی برای نمایش یافت نشد.",
-		"userpanel_oauth.accesses.delete.warning": "<p>آیا از حذف دسترسی اطمینان دارید؟</p><p>در حذف دسترسی ها دقت کنید! این عملیات بدون بازگشت است.</p>"
+		"userpanel_oauth.accesses.delete.warning": "<p>آیا از حذف دسترسی اطمینان دارید؟</p><p>در حذف دسترسی ها دقت کنید! این عملیات بدون بازگشت است.</p>",
+		"userpanel_oauth.accesses.prompt.warning": "برنامه <strong>{app.name}</strong> قصد دارد تا به اکانت کاربری شما در این سایت دسترسی پیدا کند",
+		"userpanel_oauth.accesses.prompt.allow": "اتصال را برقرار کن",
+		"userpanel_oauth.disagree": "مخالفم",
+		"userpanel_oauth.understood": "متوجه شدم",
+		"userpanel_oauth.cancel": "انصراف",
+		"userpanel_oauth.delete": "حذف",
+		"userpanel_oauth.copied": "کپی شد"
 	}
 }

@@ -11,7 +11,7 @@ $this->the_header('login');
 		echo "<i class=\"fa fa-rocket app-logo\"></i>";
 	}
 	?>
-	<p>برنامه <strong><?php echo $this->app->name; ?></strong> قصد دارد تا به اکانت کاربری شما در این سایت دسترسی پیدا کند.</p>
+	<p><?php echo t("userpanel_oauth.accesses.permission.warning", array("app.name" => $this->app->name)); ?></p>
 	<form class="form-login" name="form-login" action="<?php echo userpanel\url("oauth2/authorize", array(
 		'response_type' => 'code',
 		'redirect_uri' => $this->getRedirect(),
@@ -19,8 +19,8 @@ $this->the_header('login');
 		'state' => $this->getState(),
 	)); ?>" method="post">
 		<p class="text-center">
-			<button type="submit" class="btn btn-green"><i class="fa fa-check"></i> اتصال را برقرار کن</button>
-			<a href="<?php echo $this->getRejectRedirect(); ?>" class="btn btn-light-grey"><i class="fa fa-times"></i> مخالفم</a>
+			<button type="submit" class="btn btn-green"><i class="fa fa-check"></i> <?php echo t("userpanel_oauth.accesses.prompt.allow"); ?></button>
+			<a href="<?php echo $this->getRejectRedirect(); ?>" class="btn btn-light-grey"><i class="fa fa-times"></i> <?php echo t("userpanel_oauth.disagree"); ?></a>
 		</p>
 	</form>
 </div>

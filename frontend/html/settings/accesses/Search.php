@@ -206,8 +206,8 @@ $this->the_header();
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="access-delete-form" class="btn btn-danger">حذف</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">انصراف</button>
+		<button type="submit" form="access-delete-form" class="btn btn-danger"><?php echo t("userpanel_oauth.delete"); ?></button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo t("userpanel_oauth.cance"); ?></button>
 	</div>
 </div>
 
@@ -256,7 +256,7 @@ $this->the_header();
 		?>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">متوجه شدم</button>
+		<button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true"><?php echo t("userpanel_oauth.understood"); ?></button>
 	</div>
 </div>
 <?php

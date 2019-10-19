@@ -212,7 +212,7 @@ $this->the_header();
 	</div>
 	<div class="modal-footer">
 		<button type="submit" form="delete-apps" class="btn btn-danger">حذف</button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">انصراف</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo t("userpanel_oauth.cancel"); ?></button>
 	</div>
 </div>
 <div class="modal fade" id="app-show" tabindex="-1" data-show="true" role="dialog">
@@ -260,7 +260,7 @@ $this->the_header();
 		?>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true">متوجه شدم</button>
+		<button type="button" class="btn btn-success" data-dismiss="modal" aria-hidden="true"><?php echo t("userpanel_oauth.understood"); ?></button>
 	</div>
 </div>
 <?php

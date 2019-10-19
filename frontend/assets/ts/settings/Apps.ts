@@ -1,6 +1,10 @@
+import "@jalno/translator";
+import "bootstrap";
 import {AvatarPreview} from "bootstrap-avatar-preview/AvatarPreview";
 import * as $ from "jquery";
+import "jquery.growl";
 import {Router} from "webuilder";
+import "../jquery.userAutoComplete";
 
 export enum AppStatus {
 	ACTIVE = 1,
@@ -55,7 +59,7 @@ export default class Apps {
 				url: `userpanel/settings/apps/${app.id}/delete?ajax=1`,
 				dataType: "json",
 				type: "POST",
-				success: (data) => {
+				success: () => {
 					$("#app-" + app.id).remove();
 					$modal.modal("hide");
 					Apps.resetForm();
@@ -65,25 +69,19 @@ export default class Apps {
 					if (error.error === "data_duplicate" || error.error === "data_validation") {
 						const $input = $(`[name="${error.input}"]`, this);
 						const $params = {
-							title: "خطا",
-							message: "",
+							title: t("error.fatal.title"),
+							message: t(error.error),
 						};
-						if (error.error === "data_validation") {
-							$params.message = "داده وارد شده معتبر نیست";
-						}
-						if (error.error === "data_duplicate") {
-							$params.message = "داده وارد شده تکراری است";
-						}
 						if ($input.length) {
 							$input.inputMsg($params);
 						} else {
-							$params.message = "پاسخ سرور نامشخص است";
+							$params.message = t("userpanel.formajax.error");
 							$.growl.error($params);
 						}
 					} else {
 						$.growl.error({
-							title: "خطا",
-							message: "درخواست شما توسط سرور قبول نشد",
+							title: t("error.fatal.title"),
+							message: t("userpanel.formajax.error"),
 						});
 					}
 				},
@@ -108,8 +106,8 @@ export default class Apps {
 					this.rebuildAppRow(data.app);
 					this.resetForm();
 					$.growl.notice({
-						title: "موفقیت آمیز",
-						message: "با موفقیت ذخیره شد.",
+						title: t("userpane.success"),
+						message: t("userpane.formajax.success"),
 					});
 				},
 				error: (error) => {
@@ -117,25 +115,19 @@ export default class Apps {
 					if (error.error === "data_duplicate" || error.error === "data_validation") {
 						const $input = $(`[name="${error.input}"]`, $form);
 						const $params = {
-							title: "خطا",
-							message: "",
+							title: t("error.fatal.title"),
+							message: t(error.error),
 						};
-						if (error.error === "data_validation") {
-							$params.message = "داده وارد شده معتبر نیست";
-						}
-						if (error.error === "data_duplicate") {
-							$params.message = "داده وارد شده تکراری است";
-						}
 						if ($input.length) {
 							$input.inputMsg($params);
 						} else {
-							$params.message = "پاسخ سرور نامشخص است";
+							$params.message = t("userpanel.formajax.error");
 							$.growl.error($params);
 						}
 					} else {
 						$.growl.error({
-							title: "خطا",
-							message: "درخواست شما توسط سرور قبول نشد",
+							title: t("error.fatal.title"),
+							message: t("userpanel.formajax.error"),
 						});
 					}
 				},
@@ -193,10 +185,10 @@ export default class Apps {
 		const canDelete = $table.data("can-delete") as boolean;
 		let buttons = "";
 		if (canEdit) {
-			buttons += ` <a href="#" class="btn btn-xs btn-teal btn-edit tooltips" title="ویرایش"><i class="fa fa-edit"></i></a>`;
+			buttons += ` <a href="#" class="btn btn-xs btn-teal btn-edit tooltips" title="${t("userpanel.edit")}"><i class="fa fa-edit"></i></a>`;
 		}
 		if (canDelete) {
-			buttons += ` <a href="#" class="btn btn-xs btn-bricky btn-delete tooltips" title="حذف"><i class="fa fa-times"></i></a>`;
+			buttons += ` <a href="#" class="btn btn-xs btn-bricky btn-delete tooltips" title="${t("userpanel.delete")}"><i class="fa fa-times"></i></a>`;
 		}
 		let inner  = `<td class="center">${app.id}</td>`;
 		inner += `<td>${app.logo ? `<img src="${app.logo}" class="app-logo">` : `<i class="fa fa-rocket app-logo"></i>`} ${app.name}</td>`;

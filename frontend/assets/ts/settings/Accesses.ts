@@ -74,7 +74,7 @@ export default class Accesses {
 			$(this).formAjax({
 				url: `userpanel/settings/accesses/${access.id}/delete?ajax=1`,
 				type: "POST",
-				success: (data) => {
+				success: () => {
 					$("#access-" + access.id).remove();
 					$modal.modal("hide");
 				},
@@ -92,10 +92,10 @@ export default class Accesses {
 		let status = "";
 		switch (access.status) {
 			case (AccessStatus.ACTIVE):
-				status = `<span class="label label-success">فعال</span>`;
+				status = `<span class="label label-success">${t("userpanel_oauth.access.status.active")}</span>`;
 				break;
 			case (AccessStatus.DEACTIVE):
-				status = `<span class="label label-danger">غیرفعال</span>`;
+				status = `<span class="label label-danger">${t("userpanel_oauth.access.status.deactive")}</span>`;
 				break;
 		}
 		const canDelete = $table.data("can-delete") as boolean;
@@ -137,25 +137,19 @@ export default class Accesses {
 		if (error.error === "data_duplicate" || error.error === "data_validation") {
 			const $input = $(`[name="${error.input}"]`, this);
 			const $params = {
-				title: "خطا",
-				message: "",
+				title: t("error.fatal.title"),
+				message: t(error.error),
 			};
-			if (error.error === "data_validation") {
-				$params.message = "داده وارد شده معتبر نیست";
-			}
-			if (error.error === "data_duplicate") {
-				$params.message = "داده وارد شده تکراری است";
-			}
 			if ($input.length) {
 				$input.inputMsg($params);
 			} else {
-				$params.message = "پاسخ سرور نامشخص است";
+				$params.message = t("userpane.formajax.error");
 				$.growl.error($params);
 			}
 		} else {
 			$.growl.error({
-				title: "خطا",
-				message: "درخواست شما توسط سرور قبول نشد",
+				title: t("error.fatal.title"),
+				message: t("userpane.formajax.error"),
 			});
 		}
 	}
@@ -177,7 +171,7 @@ export default class Accesses {
 			const $input = $(this).parents(".form-group").find("input");
 			Accesses.copy($input.val() as string);
 			$(this).tooltip({
-				title: "کپی شد!",
+				title: t("userpanel_oauth.copied"),
 			}).tooltip("show");
 		});
 	}
