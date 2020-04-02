@@ -21,15 +21,15 @@ class Token extends Controller {
 				'client_id' => array(
 					'type' => validators\AppTokenValidator::class,
 				),
-				'redirect_uri' => array(
-					'type' => 'url',
-					'protocols' => null,
-				),
 			));
 			if ($inputs['grant_type'] == 'authorization_code') {
 				$inputs = array_merge($inputs, $this->checkinputs(array(
 					'code' => array(
 						'type' => 'string',
+					),
+					'redirect_uri' => array(
+						'type' => 'url',
+						'protocols' => null,
 					),
 				)));
 			} elseif ($inputs['grant_type'] == 'refresh_token') {
