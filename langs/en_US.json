@@ -1,13 +1,18 @@
 {
 	"rtl": false,
 	"phrases": {
-		"usertype.permissions.userpanel_oauth_apps_search": "Apps list",
-		"usertype.permissions.userpanel_oauth_apps_add": "Add App",
-		"usertype.permissions.userpanel_oauth_apps_edit": "Edit App",
-		"usertype.permissions.userpanel_oauth_apps_delete": "Delete App",
-		"usertype.permissions.userpanel_oauth_accesses_search": "API accesses list",
-		"usertype.permissions.userpanel_oauth_accesses_add": "Add API access",
-		"usertype.permissions.userpanel_oauth_accesses_edit": "Edit API access",
-		"usertype.permissions.userpanel_oauth_accesses_delete": "Delete API access"
+		"usertype.permissions.userpanel_oauth": "OAuth (Open Authorization)",
+
+		"usertype.permissions.userpanel_oauth_apps": "Apps",
+		"usertype.permissions.userpanel_oauth_apps_search": "OAuth Apps list",
+		"usertype.permissions.userpanel_oauth_apps_add": "Add OAuth App",
+		"usertype.permissions.userpanel_oauth_apps_edit": "Edit OAuth App",
+		"usertype.permissions.userpanel_oauth_apps_delete": "Delete OAuth App",
+
+		"usertype.permissions.userpanel_oauth_accesses": "Accesses",
+		"usertype.permissions.userpanel_oauth_accesses_search": "OAuth API accesses list",
+		"usertype.permissions.userpanel_oauth_accesses_add": "Add OAuth API access",
+		"usertype.permissions.userpanel_oauth_accesses_edit": "Edit OAuth API access",
+		"usertype.permissions.userpanel_oauth_accesses_delete": "Delete OAuth API access"
 	}
 }
