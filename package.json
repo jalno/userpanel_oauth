@@ -17,6 +17,10 @@
 		{
 			"name":"packages/userpanel/events/AuthenticationHandlersEvent",
 			"listener": "listeners/AuthenticationHandlers@add"
+		},
+		{
+			"name":"packages/userpanel/events/Users/BeforeDelete",
+			"listener": "listeners/userpanel/users/BeforeDelete@check"
 		}
 	]
 }

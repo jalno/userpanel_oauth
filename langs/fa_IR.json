@@ -13,6 +13,18 @@
 		"usertype.permissions.userpanel_oauth_accesses_search": "لیست دسترسی ها",
 		"usertype.permissions.userpanel_oauth_accesses_add": "افزودن دسترسی",
 		"usertype.permissions.userpanel_oauth_accesses_edit": "ویرایش دسترسی",
-		"usertype.permissions.userpanel_oauth_accesses_delete": "حذف دسترسی"
+		"usertype.permissions.userpanel_oauth_accesses_delete": "حذف دسترسی",
+
+		"error.packages.userpanel_oauth.error.apps.user.delete_user_warn": "هشدار در خصوص «برنامه» های این کاربر",
+		"error.packages.userpanel_oauth.error.apps.user.delete_user_warn.message": "این کاربر دارای «برنامه» و یا «برنامه» هایی می باشد؛ در صورت حذف کاربر، تمامی برنامه ها و دسترسی های وابسته به این برنامه حذف خواهند شد! و ممکن است باعث ایجاد مشکلات ثانویه گردد!",
+		"packages.userpanel_oauth.error.apps.delete_user_warn.view_apps": "در صورت نیاز می توانید با استفاده از لینک زیر، «برنامه» های این کاربر را مشاهده بفرمایید.",
+		"packages.userpanel_oauth.error.apps.delete_user_warn.view_apps.tell_someone": "در صورتی که قصد مشاهده «برنامه» های این کاربر را دارید، از شخصی که این دسترسی را دارا می باشد درخواست نمایید.",
+		"packages.userpanel_oauth.error.apps.delete_user_warn.view_apps_btn": "مشاهده «برنامه» های این کاربر",
+
+		"error.packages.userpanel_oauth.error.accesses.user.delete_user_warn": "هشدار در خصوص «دسترسی» های این کاربر",
+		"error.packages.userpanel_oauth.error.accesses.user.delete_user_warn.message": "این کاربر دارای «دسترسی» و یا «دسترسی» هایی می باشد؛ در صورت حذف کاربر، تمامی دسترسی های این کاربر حذف خواهند شد! و ممکن است باعث ایجاد مشکلات ثانویه گردد!",
+		"packages.userpanel_oauth.error.accesses.delete_user_warn.view_accesses": "در صورت نیاز می توانید با استفاده از لینک زیر، «دسترسی» های این کاربر را مشاهده بفرمایید.",
+		"packages.userpanel_oauth.error.accesses.delete_user_warn.view_accesses.tell_someone": "در صورتی که قصد مشاهده «دسترسی» های این کاربر را دارید، از شخصی که این دسترسی را دارا می باشد درخواست نمایید.",
+		"packages.userpanel_oauth.error.accesses.delete_user_warn.view_accesses_btn": "مشاهده «دسترسی» های این کاربر"
 	}
 }
