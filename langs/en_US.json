@@ -13,6 +13,18 @@
 		"usertype.permissions.userpanel_oauth_accesses_search": "OAuth API accesses list",
 		"usertype.permissions.userpanel_oauth_accesses_add": "Add OAuth API access",
 		"usertype.permissions.userpanel_oauth_accesses_edit": "Edit OAuth API access",
-		"usertype.permissions.userpanel_oauth_accesses_delete": "Delete OAuth API access"
+		"usertype.permissions.userpanel_oauth_accesses_delete": "Delete OAuth API access",
+
+		"error.packages.userpanel_oauth.error.apps.user.delete_user_warn": "Warning about 'apps' of this user",
+		"error.packages.userpanel_oauth.error.apps.user.delete_user_warn.message": "This user has 'apps' or 'apps'; If the user is removed, all programs and access to this program will be removed! And it may cause secondary problems!",
+		"packages.userpanel_oauth.error.apps.delete_user_warn.view_apps": "You can view the 'apps' of this user using the following link.",
+		"packages.userpanel_oauth.error.apps.delete_user_warn.view_apps.tell_someone": "If you want to view this user's 'apps', ask the person who has this access.",
+		"packages.userpanel_oauth.error.apps.delete_user_warn.view_apps_btn": "View 'apps' of this user",
+
+		"error.packages.userpanel_oauth.error.accesses.user.delete_user_warn": "Warning about 'accesses' of this user",
+		"error.packages.userpanel_oauth.error.accesses.user.delete_user_warn.message": "This user has 'access' or 'accesses'; If the user is deleted, all accesses of this user will be deleted! And it may cause secondary problems!",
+		"packages.userpanel_oauth.error.accesses.delete_user_warn.view_accesses": "If needed, you can view the 'accesses' of this user using the link below.",
+		"packages.userpanel_oauth.error.accesses.delete_user_warn.view_accesses.tell_someone": "If you want to see the 'access' of this user, ask the person who has this access.",
+		"packages.userpanel_oauth.error.accesses.delete_user_warn.view_accesses_btn": "View 'accesses' of this user"
 	}
 }
