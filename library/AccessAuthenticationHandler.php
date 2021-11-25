@@ -5,7 +5,35 @@ use packages\base\{http, Exception};
 use packages\userpanel\{Authentication, User, Date};
 
 class AccessAuthenticationHandler implements Authentication\IHandler {
-	
+
+	public static function getAccessByToken(string $token): ?Access {
+		$access = Access::with("app")
+						->with("user")
+						->where("userpanel_oauth_apps.status", App::ACTIVE)
+						->where("userpanel_users.status", User::active)
+						->where("userpanel_oauth_accesses.token", $token)
+						->where("userpanel_oauth_accesses.status", Access::ACTIVE)
+						->getOne();
+		if (!$access) {
+			return null;
+		}
+
+		$ip = Http::$client['ip'] ?? null;
+
+		if ($access->app->ip and $access->app->ip != $ip) {
+			return null;
+		}
+
+		if ($ip) {
+			$access->lastip = $ip;
+		}
+
+		$access->lastuse_at = Date::time();
+		$access->save();
+
+		return $access;
+	}
+
 	/** @var Accecss|null */
 	protected $access;
 	
@@ -27,26 +55,15 @@ class AccessAuthenticationHandler implements Authentication\IHandler {
 		if (count($header) != 2 or strtolower($header[0]) != "bearer") {
 			return null;
 		}
-		$access = Access::with("app")
-						->with("user")
-						->where("userpanel_oauth_apps.status", App::ACTIVE)
-						->where("userpanel_users.status", User::active)
-						->where("userpanel_oauth_accesses.token", $header[1])
-						->where("userpanel_oauth_accesses.status", Access::ACTIVE)
-						->getOne();
+
+		$access = self::getAccessByToken($header[1]);
+
 		if (!$access) {
 			return null;
 		}
-		$ip = http::$client['ip'] ?? null;
-		if ($access->app->ip and $access->app->ip != $ip) {
-			return null;
-		}
-		if ($ip) {
-			$access->lastip = $ip;
-		}
-		$access->lastuse_at = Date::time();
-		$access->save();
+
 		$this->access = $access;
+
 		return $this->access->user;
 	}
 
