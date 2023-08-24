@@ -8,7 +8,7 @@
 		"en_US": "langs/en_US.json"
 	},
 	"assets": [
-		{"type": "package", "name":"jquery", "version": "3.4.0"},
+		{"type": "package", "name":"jquery", "version": "=3.4.1"},
 		{"type": "package", "name":"bootstrap-avatar-preview", "version": "1.1.0"},
 		{"type": "package", "name":"jalali-moment", "version": "3.3.1"},
 		{"type": "package", "name":"webuilder", "version": "1.1.3"},
