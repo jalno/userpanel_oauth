@@ -1,10 +1,10 @@
 <?php
-namespace themes\clipone\views\settings\accesses;
+namespace themes\clipone\Views\UserPanelOAuth\Settings\Accesses;
 
 use packages\userpanel;
-use themes\clipone\{Navigation, ViewTrait, views\ListTrait, views\FormTrait, views\Dashboard};
-use packages\userpanel\{Authentication};
-use packages\userpanel_oauth\{Authorization, User, Access, views\settings\accesses\Search as ParentView};
+use themes\clipone\{Navigation, ViewTrait, Views\ListTrait, Views\FormTrait, Views\Dashboard};
+use packages\userpanel\{Authentication, User};
+use packages\userpanel_oauth\{Authorization, Access, Views\Settings\Accesses\Search as ParentView};
 
 class Search extends ParentView {
 	use ViewTrait, ListTrait, FormTrait;
@@ -27,7 +27,7 @@ class Search extends ParentView {
 		$this->addBodyClass("userpanel_oauth-accesses");
 		$this->setButtons();
 		$this->setFormData();
-		navigation::active("settings/accesses");
+		Navigation::active("settings/accesses");
 	}
 
 	protected function getAppsForSelect(): array {

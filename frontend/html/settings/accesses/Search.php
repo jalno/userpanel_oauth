@@ -1,9 +1,9 @@
 <?php
-use packages\base\{view\Error, json, frontend\theme};
+use packages\base\{View\Error, Json, Frontend\Theme};
 use packages\userpanel;
 use packages\userpanel\Date;
 use packages\userpanel_oauth\Access;
-use themes\clipone\utility;
+use themes\clipone\Utility;
 $this->the_header();
 ?>
 <div class="row">
@@ -85,7 +85,7 @@ $this->the_header();
 						</thead>
 						<tbody>
 						<?php foreach ($accesses as $access) { ?>
-							<tr id="access-<?php echo $access->id; ?>" data-access='<?php echo json\encode($access->toArray(true)); ?>'>
+							<tr id="access-<?php echo $access->id; ?>" data-access='<?php echo Json\Encode($access->toArray(true)); ?>'>
 								<td class="center"><?php echo $access->id; ?></td>
 								<td><?php
 									if ($access->app->logo) {
@@ -99,7 +99,7 @@ $this->the_header();
 								<td><a href="<?php echo userpanel\url("users", array("id" => $access->user->id)); ?>" class="tootips" title="#<?php echo $access->user->id; ?>" target="_blank"><?php echo $access->user->getFullName(); ?></a></td>
 							<?php } ?>
 								<td class="center ltr"><?php echo $access->lastuse_at ? Date::format("Y/m/d<br>H:i:s", $access->lastuse_at) . "<br>" . $access->lastip : "-"; ?></td>
-								<td><?php echo utility::switchcase($access->status, [
+								<td><?php echo Utility::switchcase($access->status, [
 									'<span class="label label-success">' . t("userpanel_oauth.access.status.active") . '</span>' => Access::ACTIVE,
 									'<span class="label label-danger">' . t("userpanel_oauth.access.status.deactive") . '</span>' => Access::DEACTIVE,
 								]);
@@ -119,7 +119,7 @@ $this->the_header();
 				} else {
 				?>
 				<div class="alert alert-info">
-					<h4 class="alert-heading"><i class="fa fa-info-circle"></i> <?php echo t("error." . error::NOTICE . ".title"); ?></h4>
+					<h4 class="alert-heading"><i class="fa fa-info-circle"></i> <?php echo t("error." . Error::NOTICE . ".title"); ?></h4>
 					<?php echo t("error.userpanel_oauth.accesses.notfound"); ?>
 				</div>
 				<?php } ?>
@@ -200,7 +200,7 @@ $this->the_header();
 	<div class="modal-body">
 		<form id="access-delete-form">
 			<div class="alert alert-warning">
-				<h4 class="alert-heading"> <i class="fa fa-exclamation-triangle"></i> <?php echo t("error." . error::WARNING . ".title"); ?> </h4>
+				<h4 class="alert-heading"> <i class="fa fa-exclamation-triangle"></i> <?php echo t("error." . Error::WARNING . ".title"); ?> </h4>
 			<?php echo t("userpanel_oauth.accesses.delete.warning"); ?>
 			</div>
 		</form>
@@ -218,7 +218,7 @@ $this->the_header();
 	</div>
 	<div class="modal-body">
 		<div class="image-with-check">
-			<img src="<?php echo theme::url('assets/images/default-app.png'); ?>" class="img-responsive app-logo" data-default="<?php echo theme::url('assets/images/default-app.png'); ?>">
+			<img src="<?php echo Theme::url('assets/images/default-app.png'); ?>" class="img-responsive app-logo" data-default="<?php echo Theme::url('assets/images/default-app.png'); ?>">
 			<i class="fa fa-check-circle"></i>
 		</div>
 		<p><?php echo t("userpanel_oauth.access.secret.warning"); ?></p>

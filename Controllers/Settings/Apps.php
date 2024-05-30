@@ -1,21 +1,21 @@
 <?php
-namespace packages\userpanel_oauth\controllers\settings;
+namespace packages\userpanel_oauth\Controllers\Settings;
 
-use packages\base\{Response, NotFound, View, utility\Password, Packages, Image};
+use packages\base\{Response, NotFound, View, Utility\Password, Packages, Image};
 use packages\userpanel;
 use packages\userpanel\{Controller, User, Authentication};
-use packages\userpanel_oauth\{Authorization, App, views};
+use packages\userpanel_oauth\{Authorization, App, Views};
 
 class Apps extends Controller {
 
 	private static function getApp($data): App {
-		$types = authorization::childrenTypes();
+		$types = Authorization::childrenTypes();
 		$model = new App();
 		$model->with("user");
 		if ($types) {
 			$model->where("userpanel_users.type", $types, "IN");
 		} else {
-			$model->where("userpanel_oauth_apps.user_id", authentication::getID());
+			$model->where("userpanel_oauth_apps.user_id", Authentication::getID());
 		}
 		$model->where("userpanel_oauth_apps.id", $data["app"]);
 		$app = $model->getOne();
@@ -40,7 +40,7 @@ class Apps extends Controller {
 
 	public function search(): Response {
 		Authorization::haveOrFail("apps_search");
-		$view = view::byName(views\settings\apps\Search::class);
+		$view = View::byName(Views\Settings\Apps\Search::class);
 		$this->response->setView($view);
 		$inputs = $this->checkinputs(array(
 			"id" => array(
@@ -203,7 +203,7 @@ class Apps extends Controller {
 		$this->response->Go(userpanel\url("settings/apps"));
 		return $this->response;
 	}
-	public function destroy($data): response {
+	public function destroy($data): Response {
 		$app = self::getApp($data);
 		$app->delete();
 		$this->response->setStatus(true);

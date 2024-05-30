@@ -1,12 +1,13 @@
 <?php
-namespace packages\userpanel_oauth\views\settings\accesses;
+namespace packages\userpanel_oauth\Views\Settings\Accesses;
 
-use packages\base\views\traits\form;
-use packages\userpanel\views\Listview;
+use packages\base\Views\Traits\Form;
+use packages\userpanel\Views\ListView;
 use packages\userpanel_oauth\{Authorization, App};
+use packages\base\DB\DBObject;
 
 class Search extends Listview {
-	use form;
+	use Form;
 
 	public static function onSourceLoad() {
 		self::$navigation = Authorization::is_accessed("accesses_search");
@@ -59,7 +60,7 @@ class Search extends Listview {
 	 */
 	public function export() {
 		$original = parent::export();
-		$original['data']['apps'] = dbObject::objectToArray($this->apps);
+		$original['data']['apps'] = DBObject::objectToArray($this->apps);
 		$original['data']['can_add'] = $this->canAdd;
 		$original['data']['can_edit'] = $this->canEdit;
 		$original['data']['can_delete'] = $this->canDelete;

@@ -1,8 +1,8 @@
 <?php
-use packages\base\{view\Error, frontend\theme, json};
+use packages\base\{View\Error, Frontend\Theme, Json};
 use packages\userpanel;
 use packages\userpanel_oauth\App;
-use themes\clipone\utility;
+use themes\clipone\Utility;
 
 $this->the_header();
 ?>
@@ -20,11 +20,11 @@ $this->the_header();
 				<form id="apps-add" method="POST" action="<?php echo userpanel\url("settings/apps/add"); ?>" enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="app-logo-preview avatarPreview">
-							<img src="<?php echo theme::url('assets/images/default-app.png'); ?>" class="preview img-responsive">
+							<img src="<?php echo Theme::url('assets/images/default-app.png'); ?>" class="preview img-responsive">
 							<input name="logo" type="file">
 							<div class="button-group">
 								<button type="button" class="btn btn-teal btn-sm btn-upload"><i class="fa fa-pencil"></i></button>
-								<button type="button" class="btn btn-bricky btn-sm btn-remove" data-default="<?php echo theme::url('assets/images/default-app.png'); ?>"><i class="fa fa-times"></i></button>
+								<button type="button" class="btn btn-bricky btn-sm btn-remove" data-default="<?php echo Theme::url('assets/images/default-app.png'); ?>"><i class="fa fa-times"></i></button>
 							</div>
 						</div>
 					</div>
@@ -84,7 +84,7 @@ $this->the_header();
 			<div class="panel-body">
 			<?php if ($apps = $this->getDataList()) { ?>
 				<div class="table-responsive">
-					<table class="table table-hover table-apps" data-can-edit="<?php echo json\encode($this->canEdit); ?>" data-can-delete="<?php echo json\encode($this->canDelete); ?>">
+					<table class="table table-hover table-apps" data-can-edit="<?php echo Json\Encode($this->canEdit); ?>" data-can-delete="<?php echo Json\Encode($this->canDelete); ?>">
 					<?php $hasButtons = $this->hasButtons(); ?>
 						<thead>
 							<tr>
@@ -100,7 +100,7 @@ $this->the_header();
 						</thead>
 						<tbody>
 						<?php foreach($apps as $app) { ?>
-							<tr id="app-<?php echo $app->id; ?>" data-app='<?php echo json\encode($app->toArray()); ?>'>
+							<tr id="app-<?php echo $app->id; ?>" data-app='<?php echo Json\Encode($app->toArray()); ?>'>
 								<td class="center"><?php echo $app->id; ?></td>
 								<td><?php
 									if ($app->logo) {
@@ -114,7 +114,7 @@ $this->the_header();
 									<td><a href="<?php echo userpanel\url("users", array("id" => $app->user->id)); ?>" target="_blank"><?php echo $app->user->getFullName(); ?></a></td>
 								<?php } ?>
 								<td class="ltr center"><?php echo $app->ip ?? "<i class=\"fa fa-times-circle-o\"></i>"; ?></td>
-								<td><?php echo utility::switchcase($app->status, [
+								<td><?php echo Utility::switchcase($app->status, [
 									'<span class="label label-success">' . t("userpanel_oauth.app.status.active") . '</span>' => App::ACTIVE,
 									'<span class="label label-danger">' . t("userpanel_oauth.app.status.deactive") . '</span>' => App::DEACTIVE,
 								]);
@@ -205,7 +205,7 @@ $this->the_header();
 	<div class="modal-body">
 		<form id="delete-apps">
 			<div class="alert alert-warning">
-				<h4 class="alert-heading"> <i class="fa fa-exclamation-triangle"></i> <?php echo t("error." . error::WARNING . ".title"); ?> </h4>
+				<h4 class="alert-heading"> <i class="fa fa-exclamation-triangle"></i> <?php echo t("error." . Error::WARNING . ".title"); ?> </h4>
 			<?php echo t("userpanel_oauth.apps.delete.warning"); ?>
 			</div>
 		</form>
@@ -222,7 +222,7 @@ $this->the_header();
 	</div>
 	<div class="modal-body">
 		<div class="image-with-check">
-			<img src="<?php echo theme::url('assets/images/default-app.png'); ?>" class="img-responsive app-logo" data-default="<?php echo theme::url('assets/images/default-app.png'); ?>">
+			<img src="<?php echo Theme::url('assets/images/default-app.png'); ?>" class="img-responsive app-logo" data-default="<?php echo Theme::url('assets/images/default-app.png'); ?>">
 			<i class="fa fa-check-circle"></i>
 		</div>
 		<p><?php echo t("userpanel_oauth.apps.secret.warning"); ?></p>

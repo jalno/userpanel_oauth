@@ -1,7 +1,7 @@
 <?php
-namespace packages\userpanel_oauth\views;
+namespace packages\userpanel_oauth\Views;
 
-use packages\userpanel\views\Form;
+use packages\userpanel\Views\Form;
 use packages\userpanel_oauth\App;
 
 class Prompt extends Form {

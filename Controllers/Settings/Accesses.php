@@ -1,9 +1,9 @@
 <?php
-namespace packages\userpanel_oauth\controllers\settings;
+namespace packages\userpanel_oauth\Controllers\Settings;
 
-use packages\base\{Response, NotFound, InputValidationException, Options, utility\Password};
+use packages\base\{Response, NotFound, InputValidationException, Options, Utility\Password};
 use packages\userpanel\{Controller, View, Authentication, User, Date};
-use packages\userpanel_oauth\{Authorization, views, App, Access};
+use packages\userpanel_oauth\{Authorization, Views, App, Access};
 
 class Accesses extends Controller {
 	private static function getAccess($data) {
@@ -26,7 +26,7 @@ class Accesses extends Controller {
 
 	public function search(): Response {
 		Authorization::haveOrFail("accesses_search");
-		$view = view::byName(views\settings\Accesses\Search::class);
+		$view = View::byName(Views\Settings\Accesses\Search::class);
 		$this->response->setView($view);
 		$me = Authentication::getID();
 		$types = Authorization::childrenTypes();
@@ -106,7 +106,7 @@ class Accesses extends Controller {
 	public function add(): Response {
 		Authorization::haveOrFail("accesses_add");
 		$me = Authentication::getID();
-		$types = authorization::childrenTypes();
+		$types = Authorization::childrenTypes();
 		$inputs = $this->checkinputs(array(
 			"app" => array(
 				"type" => App::class,
@@ -150,7 +150,7 @@ class Accesses extends Controller {
 		$this->response->setData($access, "access");
 		return $this->response;
 	}
-	public function update($data): response {
+	public function update($data): Response {
 		Authorization::haveOrFail("accesses_edit");
 		$access = self::getAccess($data);
 		$inputs = $this->checkinputs(array(

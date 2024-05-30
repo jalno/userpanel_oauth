@@ -1,7 +1,7 @@
 <?php
-namespace packages\userpanel_oauth\listeners;
+namespace packages\userpanel_oauth\Listeners;
 
-use packages\userpanel\events\AuthenticationHandlersEvent as Event;
+use packages\userpanel\Events\AuthenticationHandlersEvent as Event;
 use packages\userpanel_oauth\AccessAuthenticationHandler;
 
 class AuthenticationHandlers {

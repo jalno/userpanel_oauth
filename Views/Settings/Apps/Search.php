@@ -1,12 +1,12 @@
 <?php
-namespace packages\userpanel_oauth\views\settings\apps;
+namespace packages\userpanel_oauth\Views\Settings\Apps;
 
-use packages\base\views\traits\form;
-use packages\userpanel\views\Listview;
+use packages\base\Views\Traits\Form;
+use packages\userpanel\Views\ListView;
 use packages\userpanel_oauth\Authorization;
 
-class Search extends Listview {
-	use form;
+class Search extends ListView {
+	use Form;
 	
 	public static function onSourceLoad() {
 		self::$navigation = Authorization::is_accessed("apps_search");

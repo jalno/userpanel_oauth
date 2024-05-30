@@ -1,10 +1,10 @@
 <?php
 namespace packages\userpanel_oauth;
 
-use packages\base\db\dbObject;
+use packages\base\DB\DBObject;
 use packages\userpanel\User;
 
-class Access extends dbObject {
+class Access extends DBObject {
 
 	const ACTIVE = 1;
 	const DEACTIVE = 2;

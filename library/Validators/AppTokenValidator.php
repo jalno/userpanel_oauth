@@ -1,5 +1,5 @@
 <?php
-namespace packages\userpanel_oauth\validators;
+namespace packages\userpanel_oauth\Validators;
 
 use packages\base\InputValidationException;
 use packages\base\Validator\{IValidator, NullValue};

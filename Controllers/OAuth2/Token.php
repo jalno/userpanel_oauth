@@ -1,16 +1,16 @@
 <?php
-namespace packages\userpanel_oauth\controllers\OAuth2;
+namespace packages\userpanel_oauth\Controllers\OAuth2;
 
-use packages\base\{InputValidationException, Options, utility\Password, http, Response, db};
+use packages\base\{InputValidationException, Options, Utility\Password, HTTP, Response, DB};
 use packages\userpanel\{Controller, Date, User};
-use packages\userpanel_oauth\{validators, Access, App};
+use packages\userpanel_oauth\{Validators, Access, App};
 
 class Token extends Controller {
 
 	protected $authentication = false;
 
 	public function code() {
-		http::$request['get']['ajax'] = 1;
+		HTTP::$request['get']['ajax'] = 1;
 		$this->response = new Response();
 		try {
 			$inputs = $this->checkinputs(array(
@@ -19,7 +19,7 @@ class Token extends Controller {
 					'values' => ['authorization_code', 'refresh_token', 'password']
 				),
 				'client_id' => array(
-					'type' => validators\AppTokenValidator::class,
+					'type' => Validators\AppTokenValidator::class,
 				),
 			));
 			if ($inputs['grant_type'] == 'authorization_code') {
@@ -99,7 +99,7 @@ class Token extends Controller {
 	}
 
 	private function handlePasswordToken(array $inputs): Access {
-		$p = new db\Parenthesis();
+		$p = new DB\Parenthesis();
 		$p->where("email", $inputs['username']);
 		$p->orwhere("cellphone", $inputs['username']);
 		$user = (new User)
@@ -112,7 +112,7 @@ class Token extends Controller {
 		if (!$user->password_verify($inputs['password'])) {
 			$log = new \packages\userpanel\Log();
 			$log->title = t("log.wrongLogin");
-			$log->type = \packages\userpanel\logs\WrongLogin::class;
+			$log->type = \packages\userpanel\Logs\WrongLogin::class;
 			$log->user = $user->id;
 			$log->parameters = [
 				'user' => $user,

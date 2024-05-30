@@ -1,9 +1,9 @@
 <?php
-namespace packages\userpanel_oauth\listeners\userpanel\users;
+namespace packages\userpanel_oauth\Listeners\UserPanel\Users;
 
 use packages\base\{View\Error};
 use packages\userpanel_oauth\{Authorization, Access, App};
-use packages\userpanel\events as UserpanelEvents;
+use packages\userpanel\Events as UserpanelEvents;
 use function packages\userpanel\url;
 
 class BeforeDelete {

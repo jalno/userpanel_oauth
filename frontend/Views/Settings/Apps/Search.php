@@ -1,10 +1,10 @@
 <?php
-namespace themes\clipone\views\userpanel_oauth\settings\apps;
+namespace themes\clipone\Views\UserPanelOAuth\Settings\Apps;
 
 use packages\userpanel;
 use packages\userpanel\{Authentication, User};
-use packages\userpanel_oauth\{views\settings\apps\Search as parentView, Authorization, App};
-use themes\clipone\{Navigation, Navigation\MenuItem, ViewTrait, views\ListTrait, views\FormTrait, views\Dashboard};
+use packages\userpanel_oauth\{Views\Settings\Apps\Search as ParentView, Authorization, App};
+use themes\clipone\{Navigation, Navigation\MenuItem, ViewTrait, Views\ListTrait, Views\FormTrait, Views\Dashboard};
 
 class Search extends parentView {
 	use ViewTrait, ListTrait, FormTrait;

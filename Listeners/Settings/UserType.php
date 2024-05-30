@@ -1,9 +1,9 @@
 <?php
-namespace packages\userpanel_oauth\listeners\settings;
+namespace packages\userpanel_oauth\Listeners\Settings;
 
-use packages\userpanel\Usertype\Permissions;
+use packages\userpanel\UserType\Permissions;
 
-class Usertype {
+class UserType {
 	public function permissions(): void {
 		$permissions = array(
 			'apps_search',

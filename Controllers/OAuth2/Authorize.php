@@ -1,9 +1,9 @@
 <?php
-namespace packages\userpanel_oauth\controllers\OAuth2;
+namespace packages\userpanel_oauth\Controllers\OAuth2;
 
-use packages\base\{InputValidationException, NotFound, View, Options, utility\Password};
+use packages\base\{InputValidationException, NotFound, View, Options, Utility\Password};
 use packages\userpanel\{Controller, Date, Authentication};
-use packages\userpanel_oauth\{validators, views, Access};
+use packages\userpanel_oauth\{Validators, Views, Access};
 
 class Authorize extends Controller {
 	public static function getRedirectURI(string $uri, ?string $state, ?array $parameters = []) {
@@ -46,7 +46,7 @@ class Authorize extends Controller {
 					'values' => ['code']
 				),
 				'client_id' => array(
-					'type' => validators\AppTokenValidator::class,
+					'type' => Validators\AppTokenValidator::class,
 				),
 				'redirect_uri' => array(
 					'type' => 'url',
@@ -57,7 +57,7 @@ class Authorize extends Controller {
 					'optional' => true,
 				)
 			));
-			$view = View::byName(views\Prompt::class);
+			$view = View::byName(Views\Prompt::class);
 			$view->setApp($inputs['client_id']);
 			$view->setRedirect($inputs['redirect_uri']);
 			$view->setRejectRedirect(self::getRedirectURI($inputs['redirect_uri'], $inputs['state'] ?? null, array(
@@ -88,7 +88,7 @@ class Authorize extends Controller {
 					'values' => ['code']
 				),
 				'client_id' => array(
-					'type' => validators\AppTokenValidator::class,
+					'type' => Validators\AppTokenValidator::class,
 				),
 				'redirect_uri' => array(
 					'type' => 'url',

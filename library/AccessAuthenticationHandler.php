@@ -1,7 +1,7 @@
 <?php
 namespace packages\userpanel_oauth;
 
-use packages\base\{http, Exception};
+use packages\base\{HTTP, Exception};
 use packages\userpanel\{Authentication, User, Date};
 
 class AccessAuthenticationHandler implements Authentication\IHandler {
@@ -18,7 +18,7 @@ class AccessAuthenticationHandler implements Authentication\IHandler {
 			return null;
 		}
 
-		$ip = Http::$client['ip'] ?? null;
+		$ip = HTTP::$client['ip'] ?? null;
 
 		if ($access->app->ip and $access->app->ip != $ip) {
 			return null;
@@ -47,7 +47,7 @@ class AccessAuthenticationHandler implements Authentication\IHandler {
 		if ($this->access) {
 			return $this->access->user;
 		}
-		$header = http::getHeader("authorization");
+		$header = HTTP::getHeader("authorization");
 		if (!$header) {
 			return null;
 		}
