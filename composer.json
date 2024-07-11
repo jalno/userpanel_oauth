@@ -1,0 +1,20 @@
+{
+    "name": "jalno/userpanel-oauth",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "jalno/userpanel": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "packages\\userpanel_auth\\": [
+                "libraries/"
+            ],
+            "themes\\clipone\\Views\\UserPanelOAuth\\": [
+                "frontend/Views/"
+            ]
+        }
+    }
+}
