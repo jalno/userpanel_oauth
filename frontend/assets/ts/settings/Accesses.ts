@@ -1,7 +1,5 @@
 import "bootstrap";
 import "bootstrap-inputmsg";
-import * as moment from "jalali-moment";
-import * as $ from "jquery";
 import "jquery.growl";
 import "webuilder";
 import { Router } from "webuilder";

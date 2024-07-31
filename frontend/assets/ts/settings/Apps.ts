@@ -1,7 +1,6 @@
 import "@jalno/translator";
 import "bootstrap";
 import {AvatarPreview} from "bootstrap-avatar-preview/AvatarPreview";
-import * as $ from "jquery";
 import "jquery.growl";
 import {Router} from "webuilder";
 import "../jquery.userAutoComplete";
